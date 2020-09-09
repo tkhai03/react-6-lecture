@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import {connect} from 'react-redux'
 import './header.css'
 
 const Header = (props) => {
@@ -32,4 +33,10 @@ const Header = (props) => {
     </header>
   )
 }
-export default withRouter(Header)
+
+//Determine which pieces of data we want from our redux state. Must return an object
+const mapStateToProps = reduxState => {
+  return {user: reduxState.user.user}
+}
+
+export default connect(mapStateToProps)(withRouter(Header))

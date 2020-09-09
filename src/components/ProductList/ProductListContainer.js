@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ProductList from './ProductList'
+import {connect} from 'react-redux'
+import {loginUser} from '../../ducks/userReducer'
 import './productList.css'
 
 class ProductListContainer extends Component {
@@ -37,4 +39,8 @@ class ProductListContainer extends Component {
     )
   }
 }
-export default ProductListContainer
+const mapStateToProps = (reduceState) => {
+  return reduxState
+}
+ 
+export default connect(mapStateToProps, {loginUser})(ProductListContainer)
